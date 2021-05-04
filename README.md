@@ -3,6 +3,6 @@ A shell script to update to the latest version of the [Hugo](https://gohugo.io/)
 
 Forked from [dkebler's Gist](https://gist.github.com/dkebler/1188d098d62166fdc6065fb2658a71dd).
 
-Changes:
+Intended Changes:
 
 1. Work on any Linux distro.
