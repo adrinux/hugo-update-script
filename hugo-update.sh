@@ -38,6 +38,9 @@ while getopts 'ecf' OPTION; do
         echo "FORCING download/overwrite"
         FORCE=true
       ;;
+    *)
+        echo "Unrecognised command line option, aborting..."
+        exit 1
   esac
 done
 
