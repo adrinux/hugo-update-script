@@ -2,7 +2,7 @@
 # Version 0.21.0  8:26 PST, Nov 9, 2018
 # inspried from this forum post  https://discourse.gohugo.io/t/script-to-install-latest-hugo-release-on-macos-and-ubuntu/14774/10
 # if you have run into github api anonymous access limits which happens during debugging/dev then add user and token here or sourced from a separate file
-# . ~/githubapitoken
+# . githubapitoken
 #GITHUB_USER=""
 #GITHUB_TOKEN=""
 
@@ -53,7 +53,12 @@ BIN_DIR=${1:-"$DEFAULT_BIN_DIR"}
 BIN_PATH="$(which hugo$EFILE)"
 declare -A ARCHES
 ARCHES=( ["arm64"]="ARM64" ["aarch64"]="ARM64"  ["x86_64"]="64bit" ["arm32"]="ARM"  ["armhf"]="ARM" )
-ARCH=$(arch)
+if command -v arch &> /dev/null
+then
+  ARCH=$(arch)
+else
+  ARCH=$(uname -m)
+fi
 
 if [ -z "${ARCHES[$ARCH]}" ]; then
   echo  Your machine kernel architecture $ARCH is not supported by this script, aborting
