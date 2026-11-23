@@ -6,8 +6,8 @@ Forked from [dkebler's Gist](https://gist.github.com/dkebler/1188d098d62166fdc60
 
 Changes from dkebler's version:
 
-2024: Work on any Linux distro (original was limited to systems with the 'arch' command) and presumably BSD, OSX, other unix based OSes.
-2026: Removed references to extended Hugo version. (As of v0.170.0 Hugo no longer has an extended version.)
+- 2024: Work on any Linux distro (original was limited to systems with the 'arch' command) and presumably BSD, OSX, other unix based OSes.
+- 2026: Removed references to extended Hugo version. (As of v0.170.0 Hugo no longer has an extended version.)
 
 ## How to use
 
