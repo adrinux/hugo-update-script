@@ -1,10 +1,9 @@
 #!/bin/bash
-# Version 0.21.2  8:26 PST, Nov 9, 2018
+# Version 0.21.3  Nov 23, 2026
 
 # Adjusted by Adrian Simmons (aka adrinux)
 # because Arch based distros have no 'arch' command and
 # need to use 'uname -m' instead
-# Also now only downloads extended hugo version
 
 # Original by David Kebler aka dkebler see gist:
 # https://gist.github.com/dkebler/1188d098d62166fdc6065fb2658a71dd
@@ -68,7 +67,7 @@ NEW_VERSION="$(curl -u "$GITHUB_USER:$GITHUB_TOKEN" -s https://api.github.com/re
              | grep tag_name \
              | cut -d'v' -f2 | cut -c 1-6)"
 
-echo "Hugo Extended Current Version : $CUR_VERSION => New Version: $NEW_VERSION"
+echo "Hugo Current Version : $CUR_VERSION => New Version: $NEW_VERSION"
 
 if [ -z "$NEW_VERSION" ]; then
   echo  Unable to retrieve new version number - Likely you have reached github anonymous limit
@@ -80,10 +79,10 @@ if ! [ "$NEW_VERSION" = "$CUR_VERSION" ] || [ $FORCE = true ]; then
 
   pushd /tmp/ > /dev/null || exit
 
-  # https://github.com/gohugoio/hugo/releases/download/v0.122.0/hugo_extended_0.122.0_linux-arm64.tar.gz
+  # https://github.com/gohugoio/hugo/releases/download/v0.170.1/hugo_0.170.1_linux-amd64.tar.gz
 
   URL=$(curl -u "$GITHUB_USER":"$GITHUB_TOKEN" -s https://api.github.com/repos/gohugoio/hugo/releases/latest \
-  | grep "browser_download_url.*hugo_extended.*._[Ll]inux-${ARCHES[$ARCH]}\.tar\.gz" \
+  | grep "browser_download_url.*hugo.*._[Ll]inux-${ARCHES[$ARCH]}\.tar\.gz" \
   | cut -d ":" -f 2,3 \
   | tr -d \" \
   )
